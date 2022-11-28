@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MagicCard from "./components/MagicCard";
 
 function App() {
 
@@ -23,13 +24,17 @@ function App() {
 
 
 
-  return <div className="flex flex-col items-center justify-center">
+  return <div className="flex flex-col mx-auto max-w-[860px] items-center justify-center">
     <h1 className="text-5xl text-white mt-[4rem]">Magic Memory!</h1>
     <button 
       onClick={shuffleCards}
       className="mt-[3rem] rounded-md p-3 bg-white">New Game</button>
-    <main>
-
+    <main className="grid grid-cols-4 mt-[3rem] gap-4">
+      {cards.map((card) => {
+        return (
+          <MagicCard  card={card}/>
+        )
+      })}
     </main>
   </div>;
 }

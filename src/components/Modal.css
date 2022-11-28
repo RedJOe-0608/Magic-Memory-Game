@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Raleway:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,600&display=swap');
+
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(199, 199, 199, 0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .modalContainer {
+    font-family: 'Dancing Script', cursive;
+font-family: 'Raleway', sans-serif;
+    width: 600px;
+    height: 400px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 25px;
+  }

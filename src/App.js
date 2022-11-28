@@ -7,12 +7,12 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
   const cardImages = [
-    {"src": "/img/helmet-1.png"},
-    {"src": "/img/potion-1.png"},
-    {"src": "/img/ring-1.png"},
-    {"src": "/img/scroll-1.png"},
-    {"src": "/img/shield-1.png"},
-    {"src": "/img/sword-1.png"},
+    {"src": "/img/helmet-1.png", matched: false},
+    {"src": "/img/potion-1.png", matched: false},
+    {"src": "/img/ring-1.png", matched: false},
+    {"src": "/img/scroll-1.png", matched: false},
+    {"src": "/img/shield-1.png", matched: false},
+    {"src": "/img/sword-1.png", matched: false},
   ]
 
   const shuffleCards = () => {
@@ -32,13 +32,23 @@ function App() {
 
       if(choiceOne.src === choiceTwo.src)
       {
-        console.log("The selected images are equal");
+        // console.log("The selected images are equal");
+        setCards(prevCards => {return prevCards.map((card) => {
+          if(card.src === choiceOne.src)
+          {
+            return {...card, matched : true}
+          }
+          else
+          {
+            return card
+          }
+        }) })
         reset()
       }
       else
       {
-        console.log("The selected images are not equal");
-        reset()
+        setTimeout(() => reset(), 1000)
+        
       }
   }
 },[choiceOne, choiceTwo])
@@ -59,6 +69,7 @@ function App() {
           <MagicCard  
           handleChoice={handleChoice}
             card={card}
+            flipped={card === choiceOne || card === choiceTwo || card.matched }
           />
         )
       })}

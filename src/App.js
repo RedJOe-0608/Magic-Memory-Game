@@ -17,9 +17,9 @@ function App() {
     const shuffledCards = [...cardImages,...cardImages]
     .sort((a,b) => Math.random() - 0.5)
     .map((card) => ({...card, id: Math.ceil(Math.random() * 1000)}))
+    setCards(shuffledCards)
   }
 
-  setCards(shuffleCards)
 
 
 

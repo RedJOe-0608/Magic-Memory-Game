@@ -1,10 +1,13 @@
 import React from 'react'
 import './MagicCard.css'
 
-const MagicCard = ({card, handleChoice, flipped}) => {
+const MagicCard = ({card, handleChoice, flipped,disabled}) => {
     const handleClick = () => {
+        if(!disabled)
+        {
 
-        handleChoice(card)
+            handleChoice(card)
+        }
     }
   return (
       <div className={`card`}>

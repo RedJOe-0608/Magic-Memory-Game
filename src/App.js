@@ -9,6 +9,7 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null)
   const [matchCount, setMatchCount] = useState(0)
   const [showModal, setShowModal] = useState(true)
+  const [disabled, setDisabled] = useState(false)
   const cardImages = [
     {"src": "/img/helmet-1.png", matched: false},
     {"src": "/img/potion-1.png", matched: false},
@@ -35,6 +36,7 @@ function App() {
   if(choiceTwo !=null)
   {
 
+    setDisabled(true)
       if(choiceOne.src === choiceTwo.src)
       {
         setMatchCount(prevCount => prevCount + 1)
@@ -64,6 +66,7 @@ function App() {
 const reset = () => {
   setChoiceOne(null)
   setChoiceTwo(null)
+  setDisabled(false)
 }
 
 
@@ -85,6 +88,7 @@ const reset = () => {
           handleChoice={handleChoice}
             card={card}
             flipped={card === choiceOne || card === choiceTwo || card.matched }
+            disabled={disabled}
           />
         )
       })}
